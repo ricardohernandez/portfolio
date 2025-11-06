@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
+import chiletallerImg from '../assets/chiletaller.png';
+import slddImg from '../assets/sldd.png';
+import chiletallerPwaImg from '../assets/chiletallerpwa.jpg';
 
 export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -7,9 +10,9 @@ export default function Portfolio() {
 
   const projects = [
     {
-      title: 'Chiletaller.cl',
+      title: 'Chiletaller',
       description: 'Plataforma integral de servicios automotrices que conecta usuarios con talleres certificados. Sistema de cotizaciones dinámicas, contratos inteligentes, pagos integrados con Transbank y negociación de precios en tiempo real.',
-      image: '/src/assets/chiletaller.png',
+      image: chiletallerImg,
       tags: ['Laravel 10', 'Vue.js', 'MySQL', 'Transbank', 'Redis', 'Docker', 'Inertia'],
       gradient: 'from-blue-500 to-cyan-500',
       link: '#',
@@ -17,7 +20,7 @@ export default function Portfolio() {
       solution: 'Desarrollé una plataforma web completa con Laravel 10 + Vue.js que permite cotizaciones automatizadas, sistema de ratings, contratos digitales y pagos seguros con Transbank. Implementé Redis para caché de consultas frecuentes.',
       stack: ['Laravel 10', 'Vue.js', 'MySQL', 'Transbank', 'Redis', 'Docker', 'Inertia.js'],
       impact: 'Reducción de 40% en tiempo de cotización. Más de 150 talleres registrados en 3 meses. Conversión de usuarios a clientes del 18%.',
-      demoUrl: 'https://chiletaller.cl',
+      demoUrl: '',
       codeUrl: null,
       features: [
         'Cotizaciones dinámicas y automáticas',
@@ -31,7 +34,7 @@ export default function Portfolio() {
     {
       title: 'SLDD - Sistema de Gestión de Infraestructura',
       description: 'Plataforma web integral para la gestión completa de proyectos de infraestructura de telecomunicaciones. Centraliza control de obra, mediciones, certificaciones, facturación y seguimiento de personal con generación automática de reportes y trazabilidad de proyecto.',
-      image: '/src/assets/sldd.png',
+      image: slddImg,
       tags: ['CodeIgniter', 'PHP', 'MySQL', 'JavaScript', 'Bootstrap', 'jQuery'],
       gradient: 'from-green-500 to-emerald-500',
       link: '#',
@@ -53,7 +56,7 @@ export default function Portfolio() {
     {
       title: 'Chiletaller Mobile',
       description: 'Aplicación móvil PWA para iOS y Android desarrollada con Quasar Framework. Permite a usuarios y talleros gestionar solicitudes de servicios, cotizaciones, contratos y pagos desde dispositivos móviles con interfaz optimizada.',
-      image: '/src/assets/chiletallerpwa.jpg',
+      image: chiletallerPwaImg,
       tags: ['Quasar', 'Vue 3', 'Capacitor', 'Pinia', 'Tailwind CSS', 'PWA', 'Axios'],
       gradient: 'from-orange-500 to-red-500',
       link: '#',
