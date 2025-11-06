@@ -76,7 +76,7 @@ export default function Hero() {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col xs:flex-row gap-3 sm:gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
               <button
                 onClick={() => document.getElementById('portafolio').scrollIntoView({ behavior: 'smooth' })}
                 className="group relative px-6 xs:px-8 py-3 xs:py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold text-sm xs:text-base rounded-xl shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105 overflow-hidden"
@@ -122,12 +122,6 @@ export default function Hero() {
                       </svg>
                       Oferta Relámpago
                     </span>
-                    <div className="flex items-center gap-1 text-xs">
-                      <svg className="w-3 h-3 text-red-500 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd"/>
-                      </svg>
-                      <span className="font-bold text-gray-600 dark:text-gray-400">3 cupos</span>
-                    </div>
                   </div>
 
                   {/* Title */}
