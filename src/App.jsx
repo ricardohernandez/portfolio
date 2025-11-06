@@ -16,19 +16,42 @@ function App() {
       "@type": "Person",
       "name": "Ricardo Hernández",
       "jobTitle": "Full Stack Developer",
-      "url": "https://ricardohernandez.dev",
-      "image": "https://ricardohernandez.dev/og-image.jpg",
-      "description": "Full Stack Developer especializado en React, Node.js y tecnologías web modernas",
+      "url": "https://portfolio-phi-opal-18.vercel.app",
+      "image": "https://portfolio-phi-opal-18.vercel.app/og-image.jpg",
+      "description": "Desarrollador Full Stack especializado en React, Node.js, Laravel y Vue.js. Construcción de aplicaciones web escalables y modernas.",
+      "email": "ricardo.hernandez.esp@gmail.com",
+      "telephone": "+56936394124",
       "sameAs": [
-        "https://github.com/ricardohernandez",
-        "https://linkedin.com/in/ricardo-hernandez"
+        "https://github.com/ricardohernandez"
       ],
-      "location": {
-        "@type": "City",
-        "name": "Santiago",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Santiago",
+        "addressRegion": "Región Metropolitana",
         "addressCountry": "CL"
       },
-      "knowsAbout": ["React", "Node.js", "JavaScript", "Tailwind CSS", "Full Stack Development"]
+      "knowsAbout": [
+        "React", 
+        "Node.js", 
+        "Laravel", 
+        "Vue.js", 
+        "JavaScript", 
+        "TypeScript",
+        "Tailwind CSS", 
+        "MySQL",
+        "PostgreSQL",
+        "Docker",
+        "Full Stack Development",
+        "Web Development",
+        "Frontend Development",
+        "Backend Development"
+      ],
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Full Stack Developer",
+        "occupationalCategory": "15-1254.00",
+        "skills": "React, Node.js, Laravel, Vue.js, MySQL, Docker, Tailwind CSS"
+      }
     };
 
     const script = document.createElement('script');

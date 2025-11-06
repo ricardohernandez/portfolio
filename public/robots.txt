@@ -3,7 +3,7 @@ Allow: /
 Disallow: /dist/
 Disallow: /node_modules/
 
-Sitemap: https://ricardohernandez.dev/sitemap.xml
+Sitemap: https://portfolio-phi-opal-18.vercel.app/sitemap.xml
 
 # Delay for aggressive crawlers
 User-agent: AhrefsBot

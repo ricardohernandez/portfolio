@@ -53,15 +53,16 @@ export default function Hero() {
             {/* Main Heading */}
             <div>
               <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 dark:text-white leading-tight mb-3 sm:mb-4">
-                Construyo{' '}
-                <span className="bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-600 bg-clip-text text-transparent animate-gradient-x">
-                  Experiencias
-                </span>
-                {' '}Digitales
+                Ricardo Hernández
               </h1>
               
-              <div className="flex items-center gap-2 sm:gap-3 text-lg xs:text-2xl sm:text-3xl font-bold text-gray-700 dark:text-gray-300 flex-wrap">
-                <span>Como</span>
+              <div className="flex items-center gap-2 sm:gap-3 text-lg xs:text-2xl sm:text-3xl font-bold text-gray-700 dark:text-gray-300 flex-wrap mb-4">
+                <span className="bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
+                  Desarrollador Full-Stack
+                </span>
+              </div>
+
+              <div className="flex items-center gap-2 text-base xs:text-lg sm:text-xl font-semibold text-gray-600 dark:text-gray-400 flex-wrap">
                 <span className="px-3 xs:px-4 py-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg min-w-[200px] xs:min-w-[250px] sm:min-w-[320px] animate-glow line-clamp-1">
                   {displayedText}
                   <span className="animate-pulse">|</span>
@@ -69,36 +70,41 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Description */}
-            <p className="text-base xs:text-lg sm:text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl">
-              Transformo ideas en aplicaciones web modernas, escalables y de alto rendimiento.
-              Especializado en crear soluciones que impulsan negocios.
+            {/* Description - Propuesta de valor */}
+            <p className="text-base xs:text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed max-w-xl font-medium">
+              Construyo aplicaciones web <span className="font-bold text-cyan-600 dark:text-cyan-400">escalables y de alto rendimiento</span> con <span className="font-bold">React, Node.js, Laravel y Tailwind CSS</span>.
+            </p>
+            
+            <p className="text-sm xs:text-base sm:text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl">
+              ✨ Transformo ideas en productos digitales que impulsan negocios y mejoran la experiencia de usuarios.
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
               <button
                 onClick={() => document.getElementById('portafolio').scrollIntoView({ behavior: 'smooth' })}
-                className="group relative px-6 xs:px-8 py-3 xs:py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold text-sm xs:text-base rounded-xl shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105 overflow-hidden"
+                className="group relative px-8 xs:px-10 py-4 xs:py-5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-base xs:text-lg rounded-xl shadow-2xl shadow-cyan-500/40 hover:shadow-cyan-500/60 transition-all duration-300 hover:scale-105 overflow-hidden"
+                aria-label="Ver proyectos de portafolio"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-blue-700 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <span className="relative flex items-center justify-center gap-2">
-                  <svg className="w-4 xs:w-5 h-4 xs:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 xs:w-6 h-5 xs:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
                   </svg>
-                  Ver Proyectos
+                  Ver Mis Proyectos
                 </span>
               </button>
 
               <button
                 onClick={() => document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' })}
-                className="px-6 xs:px-8 py-3 xs:py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-bold text-sm xs:text-base rounded-xl border-2 border-gray-300 dark:border-gray-700 hover:border-cyan-500 dark:hover:border-cyan-400 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                className="px-8 xs:px-10 py-4 xs:py-5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-bold text-base xs:text-lg rounded-xl border-2 border-cyan-500 dark:border-cyan-400 hover:bg-cyan-50 dark:hover:bg-gray-700 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                aria-label="Ir a sección de contacto"
               >
                 <span className="flex items-center justify-center gap-2">
-                  <svg className="w-4 xs:w-5 h-4 xs:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 xs:w-6 h-5 xs:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                   </svg>
-                  Contactar
+                  Contáctame
                 </span>
               </button>
             </div>
@@ -238,10 +244,10 @@ export default function Hero() {
 
         {/* Tech Stack */}
         <div className="mt-12 sm:mt-16 lg:mt-20 pt-8 sm:pt-10 lg:pt-12 border-t border-gray-200 dark:border-gray-800">
-          <p className="text-xs xs:text-sm font-bold text-gray-500 dark:text-gray-400 mb-6 xs:mb-8 uppercase tracking-wider text-center">
+          <p className="text-sm xs:text-sm font-bold text-gray-500 dark:text-gray-400 mb-7 xs:mb-8 uppercase tracking-wider text-center px-4">
             Tecnologías que domino
           </p>
-          <div className="flex flex-wrap justify-center gap-3 xs:gap-4 sm:gap-5">
+          <div className="flex flex-wrap justify-center gap-4 xs:gap-4 sm:gap-5 px-4">
             {[
               { name: 'React', color: 'from-cyan-400 to-blue-500', icon: '⚛️' },
               { name: 'Vue.js', color: 'from-green-400 to-emerald-500', icon: '💚' },
@@ -252,12 +258,12 @@ export default function Hero() {
             ].map((tech, index) => (
               <div
                 key={tech.name}
-                className="group relative px-4 xs:px-5 sm:px-6 py-2 xs:py-2.5 sm:py-3 bg-white dark:bg-gray-800 rounded-lg xs:rounded-xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 hover:-translate-y-1"
+                className="group relative px-5 xs:px-5 sm:px-6 py-3 xs:py-2.5 sm:py-3 bg-white dark:bg-gray-800 rounded-xl xs:rounded-xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 hover:-translate-y-1"
               >
-                <div className={`absolute inset-0 bg-gradient-to-r ${tech.color} opacity-0 group-hover:opacity-10 rounded-lg xs:rounded-xl transition-opacity`}></div>
-                <div className="relative flex items-center gap-1.5 xs:gap-2">
-                  <span className="text-lg xs:text-xl sm:text-2xl">{tech.icon}</span>
-                  <span className="font-bold text-sm xs:text-base text-gray-700 dark:text-gray-200">{tech.name}</span>
+                <div className={`absolute inset-0 bg-gradient-to-r ${tech.color} opacity-0 group-hover:opacity-10 rounded-xl xs:rounded-xl transition-opacity`}></div>
+                <div className="relative flex items-center gap-2.5 xs:gap-2">
+                  <span className="text-2xl xs:text-xl sm:text-2xl">{tech.icon}</span>
+                  <span className="font-bold text-base xs:text-base text-gray-700 dark:text-gray-200">{tech.name}</span>
                 </div>
               </div>
             ))}

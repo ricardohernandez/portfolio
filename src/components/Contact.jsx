@@ -90,16 +90,16 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contacto" className="relative py-10 lg:py-16 bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800 overflow-hidden">
+    <section id="contacto" className="relative py-10 lg:py-16 bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800 overflow-x-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-50/30 to-transparent dark:via-blue-900/10"></div>
       <div className="absolute top-20 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-hidden">
         {/* Section Header */}
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-3xl xs:text-4xl sm:text-5xl font-black text-gray-900 dark:text-white mb-4 sm:mb-6">
+        <div className="text-center mb-10 sm:mb-12">
+          <h2 className="text-3xl xs:text-4xl sm:text-5xl font-black text-gray-900 dark:text-white mb-5 sm:mb-6">
             Hablemos de tu{' '}
             <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
               proyecto
@@ -114,7 +114,7 @@ export default function Contact() {
           {/* Contact Info */}
           <div className="lg:col-span-2 space-y-6 sm:space-y-8">
             {/* Contact Cards */}
-            <div className="space-y-3 sm:space-y-4">
+            <div className="space-y-4 sm:space-y-4">
               {contactInfo.map((info, index) => (
                 <a
                   key={index}
@@ -122,7 +122,7 @@ export default function Contact() {
                   className="group block bg-gradient-to-br from-white to-blue-50/50 dark:from-slate-800 dark:to-blue-900/20 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-slate-700 shadow-lg hover:shadow-xl p-4 xs:p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1"
                 >
                   <div className="flex items-center gap-3 xs:gap-4">
-                    <div className={`w-10 xs:w-12 h-10 xs:h-12 bg-gradient-to-br ${info.gradient} rounded-lg xs:rounded-xl flex items-center justify-center mr-2 xs:mr-0 group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}>
+                    <div className={`w-11 xs:w-12 h-11 xs:h-12 bg-gradient-to-br ${info.gradient} rounded-xl xs:rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}>
                       <svg className="w-5 xs:w-6 h-5 xs:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={info.icon}/>
                       </svg>
@@ -131,7 +131,7 @@ export default function Contact() {
                       <div className="text-xs xs:text-sm font-bold text-gray-500 dark:text-gray-400 mb-0.5">
                         {info.title}
                       </div>
-                      <div className="text-sm xs:text-base text-gray-900 dark:text-white font-semibold truncate">
+                      <div className="text-xs xs:text-sm text-gray-900 dark:text-white font-semibold truncate">
                         {info.value}
                       </div>
                     </div>
@@ -142,12 +142,12 @@ export default function Contact() {
 
 
             {/* Availability Badge */}
-            <div className="bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl shadow-xl p-5 sm:p-6 text-white">
+            <div className="bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl shadow-xl p-4 sm:p-6 text-white">
               <div className="flex items-center mb-2">
-                <span className="w-3 h-3 bg-white rounded-full animate-ping mr-2 xs:mr-3"></span>
-                <span className="font-bold text-sm xs:text-base">Disponible</span>
+                <span className="w-2.5 h-2.5 bg-white rounded-full animate-ping mr-2 xs:mr-3"></span>
+                <span className="font-bold text-sm xs:text-sm">Disponible</span>
               </div>
-              <p className="text-xs xs:text-sm text-white/90">
+              <p className="text-sm xs:text-sm text-white/90">
                 Actualmente acepto proyectos freelance y oportunidades de colaboración.
               </p>
             </div>
@@ -155,8 +155,8 @@ export default function Contact() {
 
           {/* Contact Form */}
           <div className="lg:col-span-3">
-            <form onSubmit={handleSubmit} className="bg-gradient-to-br from-white to-blue-50/50 dark:from-slate-800 dark:to-blue-900/20 backdrop-blur-sm rounded-3xl border border-gray-200 dark:border-slate-700 shadow-2xl p-6 xs:p-7 sm:p-8">
-              <div className="space-y-5 sm:space-y-6">
+            <form onSubmit={handleSubmit} className="bg-gradient-to-br from-white to-blue-50/50 dark:from-slate-800 dark:to-blue-900/20 backdrop-blur-sm rounded-3xl border border-gray-200 dark:border-slate-700 shadow-2xl p-5 xs:p-6 sm:p-8">
+              <div className="space-y-6 sm:space-y-6">
                 {/* Name Input */}
                 <div>
                   <label htmlFor="name" className="block text-xs xs:text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
@@ -169,7 +169,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2.5 xs:py-3 bg-white dark:bg-slate-700 border border-gray-300 dark:border-slate-600 rounded-lg xs:rounded-xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm xs:text-base"
+                    className="w-full px-4 py-3 xs:py-3 bg-white dark:bg-slate-700 border border-gray-300 dark:border-slate-600 rounded-xl xs:rounded-xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm xs:text-base"
                     placeholder="Tu nombre"
                   />
                 </div>
@@ -186,7 +186,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2.5 xs:py-3 bg-white dark:bg-slate-700 border border-gray-300 dark:border-slate-600 rounded-lg xs:rounded-xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm xs:text-base"
+                    className="w-full px-4 py-3 xs:py-3 bg-white dark:bg-slate-700 border border-gray-300 dark:border-slate-600 rounded-xl xs:rounded-xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm xs:text-base"
                     placeholder="tu@email.com"
                   />
                 </div>
@@ -203,7 +203,7 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2.5 xs:py-3 bg-white dark:bg-slate-700 border border-gray-300 dark:border-slate-600 rounded-lg xs:rounded-xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm xs:text-base"
+                    className="w-full px-4 py-3 xs:py-3 bg-white dark:bg-slate-700 border border-gray-300 dark:border-slate-600 rounded-xl xs:rounded-xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm xs:text-base"
                     placeholder="¿En qué puedo ayudarte?"
                   />
                 </div>
@@ -220,7 +220,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows="5"
-                    className="w-full px-4 py-2.5 xs:py-3 bg-white dark:bg-slate-700 border border-gray-300 dark:border-slate-600 rounded-lg xs:rounded-xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none text-sm xs:text-base"
+                    className="w-full px-4 py-3 xs:py-3 bg-white dark:bg-slate-700 border border-gray-300 dark:border-slate-600 rounded-xl xs:rounded-xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none text-sm xs:text-base"
                     placeholder="Cuéntame sobre tu proyecto..."
                   ></textarea>
                 </div>
@@ -229,7 +229,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3 xs:py-4 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-bold text-sm xs:text-base rounded-lg xs:rounded-xl shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                  className="w-full py-3.5 xs:py-4 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-bold text-sm xs:text-base rounded-xl xs:rounded-xl shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                 >
                   {isSubmitting ? (
                     <>
@@ -251,7 +251,7 @@ export default function Contact() {
 
                 {/* Status Messages */}
                 {submitStatus === 'success' && (
-                  <div className="p-3 xs:p-4 bg-green-100 dark:bg-green-900/30 border border-green-500 rounded-lg xs:rounded-xl text-green-700 dark:text-green-400 font-semibold flex items-center text-sm xs:text-base">
+                  <div className="p-3 xs:p-4 bg-green-100 dark:bg-green-900/30 border border-green-500 rounded-xl xs:rounded-xl text-green-700 dark:text-green-400 font-semibold flex items-center text-xs xs:text-sm">
                     <svg className="w-4 xs:w-5 h-4 xs:h-5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                     </svg>
@@ -260,7 +260,7 @@ export default function Contact() {
                 )}
                 
                 {submitStatus === 'error' && (
-                  <div className="p-3 xs:p-4 bg-red-100 dark:bg-red-900/30 border border-red-500 rounded-lg xs:rounded-xl text-red-700 dark:text-red-400 font-semibold flex items-center text-sm xs:text-base">
+                  <div className="p-3 xs:p-4 bg-red-100 dark:bg-red-900/30 border border-red-500 rounded-xl xs:rounded-xl text-red-700 dark:text-red-400 font-semibold flex items-center text-xs xs:text-sm">
                     <svg className="w-4 xs:w-5 h-4 xs:h-5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd"/>
                     </svg>
