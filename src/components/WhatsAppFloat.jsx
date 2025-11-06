@@ -9,7 +9,7 @@ export default function WhatsAppFloat() {
   return (
     <button
       onClick={handleClick}
-      className="fixed bottom-6 right-6 z-50 group"
+      className="fixed bottom-4 xs:bottom-5 sm:bottom-6 right-4 xs:right-5 sm:right-6 z-50 group"
       aria-label="Contactar por WhatsApp"
     >
       <div className="relative">
@@ -17,10 +17,10 @@ export default function WhatsAppFloat() {
         <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-75"></div>
         
         {/* Main button */}
-        <div className="relative w-14 h-14 bg-gradient-to-br from-green-400 to-green-600 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center">
+        <div className="relative w-12 xs:w-14 h-12 xs:h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center">
           {/* WhatsApp Icon */}
           <svg 
-            className="w-8 h-8 text-white" 
+            className="w-6 xs:w-7 sm:w-8 h-6 xs:h-7 sm:h-8 text-white" 
             fill="currentColor" 
             viewBox="0 0 24 24"
           >
@@ -28,12 +28,12 @@ export default function WhatsAppFloat() {
           </svg>
         </div>
 
-        {/* Tooltip */}
-        <div className="absolute bottom-full right-0 mb-2 hidden group-hover:block animate-fade-in-down">
-          <div className="bg-gray-900 dark:bg-gray-800 text-white text-sm font-semibold px-4 py-2 rounded-lg shadow-xl whitespace-nowrap">
-            ¿Necesitas ayuda? Chatea conmigo
-            <div className="absolute top-full right-6 -mt-1">
-              <div className="border-8 border-transparent border-t-gray-900 dark:border-t-gray-800"></div>
+        {/* Tooltip - solo visible en hover (desktop) */}
+        <div className="absolute bottom-full right-0 mb-2 hidden group-hover:block animate-fade-in-down z-50">
+          <div className="bg-gray-900 dark:bg-gray-800 text-white text-xs xs:text-sm font-semibold px-3 xs:px-4 py-1.5 xs:py-2 rounded-lg shadow-xl whitespace-nowrap">
+            ¿Necesitas ayuda?
+            <div className="absolute top-full right-5 xs:right-6 -mt-1">
+              <div className="border-6 xs:border-8 border-transparent border-t-gray-900 dark:border-t-gray-800"></div>
             </div>
           </div>
         </div>
