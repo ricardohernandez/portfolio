@@ -1,77 +1,80 @@
-# Portfolio Personal - Ricardo Hernández
+# 💼 Portfolio Personal - Ricardo Hernández
 
-Portafolio personal desarrollado con React, Vite y Tailwind CSS. Presenta un diseño moderno con modo claro/oscuro inspirado en interfaces profesionales.
+Portafolio profesional desarrollado con **React**, **Vite** y **Tailwind CSS**. Diseño moderno y responsivo con tema oscuro/claro integrado.
 
-## 🚀 Características
+## ✨ Características
 
-- ✨ Diseño moderno y responsivo
-- 🌓 Modo claro y oscuro
-- ⚡ Desarrollado con Vite para máximo rendimiento
-- 🎨 Estilizado con Tailwind CSS
-- 📱 Totalmente responsive
-- 🎯 Secciones: Inicio, Sobre Mí, Portafolio, Contacto
+- 🎯 **Secciones completas**: Inicio, Sobre Mí, Portafolio, Contacto
+- 🌓 **Modo oscuro/claro** con persistencia en localStorage
+- 📱 **Diseño 100% responsivo** - Mobile first
+- ⚡ **Animaciones suaves** - Fade in, typing effect, gradientes animados
+- 🎨 **Interfaz moderna** con gradientes y efectos glassmorphism
+- 💬 **Botón WhatsApp flotante** para contacto directo
+- 🏷️ **Oferta especial destacada** con CTA optimizado
+- 📊 **Stack tecnológico** mostrado visualmente
 
 ## 🛠️ Tecnologías
 
-- React 18
-- Vite
-- Tailwind CSS
-- PostCSS
-- Autoprefixer
+| Tecnología | Versión |
+|---|---|
+| React | 18.x |
+| Vite | Latest |
+| Tailwind CSS | 3.4.1 |
+| Node.js | 14+ |
 
 ## 📦 Instalación
 
 ```bash
+# Clonar repositorio
+git clone https://github.com/ricardohernandez/portfolio.git
+cd portfolio
+
 # Instalar dependencias
 npm install
 
-# Ejecutar en desarrollo
+# Ejecutar desarrollo
 npm run dev
 
-# Compilar para producción
+# Build producción
 npm run build
 
-# Previsualizar build de producción
+# Preview build
 npm run preview
 ```
 
-## 🚀 Despliegue en Vercel
+## 📂 Estructura
 
-1. Conecta tu repositorio a Vercel
-2. El proyecto se desplegará automáticamente
-3. Vercel detectará automáticamente la configuración de Vite
+```
+src/
+├── components/       # Componentes React
+│   ├── Hero.jsx     # Sección inicio
+│   ├── About.jsx    # Sobre mí
+│   ├── Portfolio.jsx # Proyectos
+│   ├── Contact.jsx  # Contacto
+│   ├── Navbar.jsx   # Navegación
+│   ├── Footer.jsx   # Pie de página
+│   └── WhatsAppFloat.jsx # Botón flotante
+├── context/         # Context API
+│   └── ThemeContext.jsx
+└── index.css        # Estilos globales
+```
 
-## 📝 Personalización
+## 📞 Contacto
 
-### Información Personal
+- **Email**: ricardo.hernandez.esp@gmail.com
+- **Teléfono**: +56 9 3639 4124
+- **GitHub**: [ricardohernandez](https://github.com/ricardohernandez)
+- **WhatsApp**: [Contactar](https://wa.me/56936394124)
 
-Edita los siguientes archivos para personalizar tu información:
+## 🚀 Deployment
 
-- `src/components/Hero.jsx` - Título y descripción principal
-- `src/components/About.jsx` - Información personal y habilidades
-- `src/components/Portfolio.jsx` - Tus proyectos
-- `src/components/Contact.jsx` - Información de contacto
-
-### Colores y Estilos
-
-Los colores principales se pueden modificar en `tailwind.config.js`
-
-### Tema
-
-El sistema de temas se maneja en `src/context/ThemeContext.jsx`
+Listo para desplegar en **Vercel**. Solo conecta el repositorio en Vercel y se deployará automáticamente.
 
 ## 📄 Licencia
 
-MIT
-
-## 👤 Autor
-
-Ricardo Hernández
-- Email: ricardo@ejemplo.com
-- GitHub: [@tuusuario](https://github.com/tuusuario)
-- LinkedIn: [tuusuario](https://linkedin.com/in/tuusuario)
+MIT © 2025 Ricardo Hernández
 
 ---
 
-Desarrollado con ❤️ usando React y Tailwind CSS
+Desarrollado con ❤️ usando React, Tailwind CSS y Vite
 
