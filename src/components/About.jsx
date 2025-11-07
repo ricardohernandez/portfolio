@@ -56,17 +56,19 @@ export default function About() {
                 key={index}
                 className="group bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-xl p-6 xs:p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:border-cyan-500 dark:hover:border-cyan-400"
               >
-                <div className="w-14 xs:w-14 h-14 xs:h-14 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl xs:rounded-2xl flex items-center justify-center mb-5 xs:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <svg className="w-7 xs:w-7 h-7 xs:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={skill.icon}/>
-                  </svg>
+                <div className="flex justify-center mb-5 xs:mb-4">
+                  <div className="w-14 xs:w-14 h-14 xs:h-14 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl xs:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <svg className="w-7 xs:w-7 h-7 xs:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={skill.icon}/>
+                    </svg>
+                  </div>
                 </div>
-                <h4 className="text-xl xs:text-xl font-bold text-gray-900 dark:text-white mb-4 xs:mb-4">
+                <h4 className="text-xl xs:text-xl font-bold text-gray-900 dark:text-white mb-4 xs:mb-4 text-center">
                   {skill.category}
                 </h4>
                 <ul className="space-y-2.5 xs:space-y-2">
                   {skill.items.map((item, i) => (
-                    <li key={i} className="flex items-center text-gray-700 dark:text-gray-300 text-base xs:text-base">
+                    <li key={i} className="flex items-center justify-center text-gray-700 dark:text-gray-300 text-base xs:text-base">
                       <svg className="w-5 xs:w-4 h-5 xs:h-4 text-cyan-500 mr-2.5 xs:mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                       </svg>
