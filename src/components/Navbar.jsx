@@ -98,13 +98,13 @@ export default function Navbar() {
               >
                 <div className="relative">
                   <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl xs:rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity"></div>
-                  <div className="relative w-11 xs:w-10 sm:w-12 h-11 xs:h-10 sm:h-12 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl xs:rounded-xl flex items-center justify-center shadow-lg">
-                    <span className="text-white font-black text-xl xs:text-xl sm:text-2xl">R</span>
+                  <div className="relative w-10 xs:w-9 sm:w-12 h-10 xs:h-9 sm:h-12 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl xs:rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg">
+                    <span className="text-white font-black text-lg xs:text-base sm:text-2xl">R</span>
                   </div>
                 </div>
                 <div className="block">
-                  <span className="block text-xl xs:text-xl sm:text-2xl font-black text-gray-900 dark:text-white leading-tight">Ricardo Hernández</span>
-                  <span className="block text-lg xs:text-base font-semibold text-cyan-600 dark:text-cyan-400 mt-0.5">Full Stack Developer</span>
+                  <span className="block text-lg xs:text-base sm:text-2xl font-black text-gray-900 dark:text-white leading-tight">Ricardo Hernández</span>
+                  <span className="block text-sm xs:text-xs sm:text-base font-semibold text-cyan-600 dark:text-cyan-400 mt-0.5">Full Stack Developer</span>
                 </div>
               </button>
             </div>
