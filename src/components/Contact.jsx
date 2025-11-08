@@ -96,7 +96,7 @@ export default function Contact() {
       <div className="absolute top-20 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-hidden">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 overflow-x-hidden">
         {/* Section Header */}
         <div className="text-center mb-10 sm:mb-12">
           <h2 className="text-3xl xs:text-4xl sm:text-5xl font-black text-gray-900 dark:text-white mb-5 sm:mb-6">
@@ -229,7 +229,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3.5 xs:py-4 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-bold text-sm xs:text-base rounded-xl xs:rounded-xl shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                  className="w-full py-3.5 xs:py-4 bg-gradient-to-r from-blue-800 to-blue-900 dark:from-blue-900 dark:to-slate-950 text-white font-bold text-sm xs:text-base rounded-xl xs:rounded-xl shadow-2xl hover:shadow-blue-900/50 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                 >
                   {isSubmitting ? (
                     <>

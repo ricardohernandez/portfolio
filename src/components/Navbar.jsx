@@ -45,7 +45,7 @@ export default function Navbar() {
         {/* Subtle animated line */}
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent"></div>
         
-        <div className="relative z-10 max-w-7xl mx-auto px-5 xs:px-6 sm:px-6 lg:px-8 py-2.5 xs:py-3 sm:py-1">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-5 xs:px-6 sm:px-6 lg:px-8 py-2.5 xs:py-3 sm:py-1">
           <div className="flex items-center justify-between gap-3 xs:gap-3 sm:gap-4">
             {/* Left - Status Badge */}
             <div className="flex items-center gap-3 xs:gap-4">
@@ -87,7 +87,7 @@ export default function Navbar() {
       <header className="sticky top-0 z-50 transition-all duration-300">
         <div className="absolute inset-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-700/50"></div>
         
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-5 xs:px-6 sm:px-6 lg:px-8">
+        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-5 xs:px-6 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20 lg:h-20">
             
             {/* Logo */}
@@ -120,16 +120,16 @@ export default function Navbar() {
                   <div className={`px-4 xl:px-6 py-2 xl:py-3 text-sm xl:text-base font-semibold transition-all duration-300 rounded-lg ${
                     activeSection === item.id
                       ? 'text-white'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
+                      : 'text-gray-700 dark:text-gray-300 hover:text-white'
                   }`}>
                     {/* Active background */}
                     {activeSection === item.id && (
-                      <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg shadow-lg shadow-cyan-500/30"></div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-800 to-blue-900 dark:from-blue-900 dark:to-slate-950 rounded-lg shadow-lg shadow-blue-900/30"></div>
                     )}
                     
                     {/* Hover background */}
                     {activeSection !== item.id && (
-                      <div className="absolute inset-0 bg-gray-100 dark:bg-gray-800 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                      <div className="absolute inset-0 bg-blue-700 dark:bg-slate-900 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     )}
                     
                     <span className="relative z-10 flex items-center gap-1.5 xl:gap-2">
@@ -191,8 +191,8 @@ export default function Navbar() {
                 onClick={() => scrollToSection(item.id)}
                 className={`w-full flex items-center gap-3.5 xs:gap-3 px-4 xs:px-4 py-3.5 xs:py-3 rounded-xl xs:rounded-lg font-semibold text-lg xs:text-lg transition-all duration-200 ${
                   activeSection === item.id
-                    ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg'
-                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                    ? 'bg-gradient-to-r from-blue-800 to-blue-900 dark:from-blue-900 dark:to-slate-950 text-white shadow-lg'
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-blue-700 dark:hover:bg-slate-900'
                 }`}
               >
                 <svg className="w-6 xs:w-6 h-6 xs:h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -115,7 +115,7 @@ export default function Portfolio() {
       <div className="absolute top-40 left-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-40 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-10 sm:mb-12">
           <h2 className="text-3xl xs:text-4xl sm:text-5xl font-black text-gray-900 dark:text-white mb-5 sm:mb-6 px-4">
