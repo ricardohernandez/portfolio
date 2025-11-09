@@ -11,7 +11,7 @@ import { useEffect } from 'react'
 function App() {
   useEffect(() => {
     // Schema.org structured data for better SEO
-    const schemaData = {
+    const schemaData = { 
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Ricardo Hernández",
