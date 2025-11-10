@@ -31,11 +31,11 @@ export default function HeroSlider() {
     },
     {
       id: 'enterprise',
-      h1: 'Transformación Digital para Empresas: Eficiencia y Resultados',
+      h1: 'Transformación para Empresas: Eficiencia y Resultados',
       h1Highlight: 'Eficiencia y Resultados',
       roles: ['Desarrollo Ágil', 'Soluciones Hechas a Medida', 'Apps Empresariales', 'Consultoría Técnica'],
       proposals: [
-        'Digitalizo procesos empresariales complejos en sistemas web confiables que generan ahorros inmediatos.',
+        'Digitalización de  procesos empresariales complejos en sistemas web confiables que generan ahorros inmediatos.',
         'Creo soluciones empresariales robustas que integran tus sistemas existentes y multiplican tu productividad.',
         'Implemento aplicaciones web corporativas seguras que cumplen normativas y escalan con tu organización.',
         'Automatizo operaciones críticas de tu empresa con plataformas web personalizadas y de alto rendimiento.',
