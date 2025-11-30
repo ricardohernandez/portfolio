@@ -3,6 +3,15 @@ import { createPortal } from 'react-dom';
 import chiletallerImg from '../assets/chiletaller.png';
 import slddImg from '../assets/sldd.png';
 import chiletallerPwaImg from '../assets/chiletallerpwa.jpg';
+import {usePortfolio} from '../hooks/usePortfolio.js';
+import { getImageUrl } from '../config/api.js';
+
+// Mapeo de imágenes locales como fallback
+const imageMap = {
+  'chiletaller': chiletallerImg,
+  'sldd': slddImg,
+  'chiletallerpwa': chiletallerPwaImg,
+};
 
 export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -11,9 +20,41 @@ export default function Portfolio() {
   const [expandedImage, setExpandedImage] = useState(null);
   const [isImageExpanded, setIsImageExpanded] = useState(false);
   const [isImageAnimating, setIsImageAnimating] = useState(false);
+  const { portfolio, loading, error } = usePortfolio();
+
+  // Función para obtener la imagen correcta
+  const getProjectImage = (project) => {
+    if (!project) return '';
+    
+    // Si tiene imagen en el backend, usarla (puede ser image_url o image)
+    const imagePath = project.image_url || project.image;
+    if (imagePath) {
+      return getImageUrl(imagePath);
+    }
+    
+    // Fallback a imágenes locales mapeadas
+    const key = project.title?.toLowerCase().replace(/\s+/g, '') || '';
+    return imageMap[key] || chiletallerImg;
+  };
+
+  // Función para parsear datos JSON del backend
+  const parseJsonField = (field) => {
+    if (!field) return [];
+    if (Array.isArray(field)) return field;
+    if (typeof field === 'string') {
+      try {
+        return JSON.parse(field);
+      } catch (e) {
+        return [];
+      }
+    }
+    return [];
+  };
+ 
 
   const openModal = (project) => {
     setSelectedProject(project);
+    setIsModalOpen(true);
     setTimeout(() => setIsModalAnimating(true), 10);
   };
 
@@ -27,6 +68,7 @@ export default function Portfolio() {
 
   const openExpandedImage = (image) => {
     setExpandedImage(image);
+    setIsImageExpanded(true);
     setTimeout(() => setIsImageAnimating(true), 10);
   };
 
@@ -38,79 +80,7 @@ export default function Portfolio() {
     }, 300);
   };
 
-  const projects = [
-    {
-      title: 'Chiletaller',
-      description: 'Plataforma integral de servicios automotrices que conecta usuarios con talleres certificados. Sistema de cotizaciones dinámicas, contratos inteligentes,sistema de ratings, pagos integrados con Transbank, sistema de agendamiento en tiempo real, etc.',
-      image: chiletallerImg,
-      tags: ['Laravel ', 'Vue.js', 'MySQL', 'Redis', 'Docker', 'Inertia'],
-      gradient: 'from-blue-500 to-cyan-500',
-      link: '#',
-      challenge: 'Los usuarios tenían dificultad para encontrar talleres confiables y comparar precios de forma transparente. Los talleres perdían clientes potenciales por falta de visibilidad.',
-      solution: 'Desarrollé una plataforma web completa con Laravel + Vue.js que permite cotizaciones automatizadas, sistema de ratings, contratos digitales, pagos seguros. Implementé Redis para caché de consultas frecuentes.',
-      stack: ['Laravel ', 'Vue.js', 'MySQL', 'Redis', 'Docker', 'Inertia.js'],
-      impact: 'Usuarios ahora encuentran talleres confiables con transparencia total de precios. Los talleres ganaron visibilidad y acceso directo a clientes potenciales. El sistema de ratings genera confianza entre usuarios y talleres.',
-      demoUrl: '',
-      codeUrl: null,
-      features: [
-        'Cotizaciones dinámicas y automáticas',
-        'Envío de correos automáticos',
-        'Sistema de pagos integrado',
-        'Notificaciones en tiempo real con Redis',
-        'Contratos inteligentes digitales',
-        'Sistema de agendamiento en tiempo real',
-        'Gestor de talleres certificados',
-        'Rating y reseñas de usuarios'
-      ]
-    },
-    {
-      title: 'SLDD - Gestión de Infraestructura',
-      description: 'Plataforma web integral para la gestión completa de proyectos de infraestructura de telecomunicaciones. Centraliza control de obra, mediciones, certificaciones, facturación, seguimiento de personal con generación automática de reportes y trazabilidad de proyecto, etc.',
-      image: slddImg,
-      tags: ['CodeIgniter', 'MySQL', 'JavaScript', 'Bootstrap'],
-      gradient: 'from-green-500 to-emerald-500',
-      link: '#',
-      challenge: 'Empresa de telecomunicaciones gestionaba proyectos de infraestructura con Excel y correos, causando errores de facturación y pérdida de información crítica de avances.',
-      solution: 'Diseñé e implementé un sistema web centralizado que unifica control de obra, certificaciones, mediciones , gestión de pagos con roles diferenciados y reportes automáticos.',
-      stack: ['CodeIgniter ', 'MySQL', 'JavaScript', 'Bootstrap '],
-      impact: 'Sistema centralizado elimina errores en facturación. Información de proyectos accesible y trazable en tiempo real. Administrativos trabajan más eficientemente sin dependencia de correos. Reportes automáticos garantizan precisión en datos.',
-      demoUrl: null,
-      codeUrl: null,
-      features: [
-        'Control de construcción y avances',
-        'Gestión de mediciones y certificaciones',
-        'Sistema de pagos integrado',
-        'Seguimiento de personal de obra',
-        'Reportes detallados por fase',
-        'Control de proveedores y materiales'
-      ]
-    },
-    {
-      title: 'Chiletaller Mobile',
-      description: 'Aplicación móvil PWA para iOS y Android desarrollada con Quasar Framework. Permite a usuarios y talleres gestionar solicitudes de servicios, cotizaciones, contratos y pagos desde dispositivos móviles con interfaz optimizada.',
-      image: chiletallerPwaImg,
-      tags: ['Quasar', 'Vue 3', 'Capacitor', 'Pinia', 'Tailwind CSS', 'Axios'],
-      gradient: 'from-orange-500 to-red-500',
-      link: '#',
-      challenge: 'Se requeria una aplicación móvil nativa instalable para acceder rápidamente sin necesidad de navegador.',
-      solution: 'Construí una PWA con Quasar Framework + Capacitor que compila a iOS/Android nativamente, con estado global en Pinia, notificaciones push, y modo offline para consultas.',
-      stack: ['Quasar Framework', 'Vue 3', 'Capacitor', 'Pinia', 'Tailwind CSS', 'PWA', 'Axios'],
-      impact: 'App móvil proporciona experiencia rápida y fluida en dispositivos. Los usuarios pueden gestionar servicios en cualquier momento sin navegador. Notificaciones push mantienen a usuarios siempre informados.',
-      demoUrl: null,
-      codeUrl: null,
-      features: [
-        'Compilación nativa para iOS y Android',
-        'Gestión de solicitudes de servicios',
-        'Cotizaciones en tiempo real',
-        'Envío de notificaciones automáticas por correo',
-        'Sistema de notificaciones push en tiempo real con Redis',
-        'Pagos integrados',
-        'Notificaciones push en tiempo real'
-      ]
-    },
-  
-  ];
-
+ 
   return (
     <section id="portafolio" className="relative py-10 lg:py-16 bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800 overflow-hidden">
       {/* Background Effects */}
@@ -135,7 +105,7 @@ export default function Portfolio() {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {projects.map((project, index) => (
+          {portfolio.map((project, index) => (
             <div
               key={index}
               className="group relative bg-white dark:bg-slate-800 rounded-3xl border border-gray-200 dark:border-slate-700 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2"
@@ -144,7 +114,7 @@ export default function Portfolio() {
               <div className="relative h-40 xs:h-44 sm:h-48 overflow-hidden">
                 <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-90`}></div>
                 <img
-                  src={project.image}
+                  src={getProjectImage(project)}
                   alt={`Proyecto ${project.title} - ${project.description.substring(0, 100)}`}
                   loading="lazy"
                   width="400"
@@ -239,7 +209,7 @@ export default function Portfolio() {
               <div className="hidden lg:flex lg:w-2/5 relative flex-shrink-0 h-full">
                 <div className={`absolute inset-0 bg-gradient-to-br ${selectedProject.gradient} opacity-90`}></div>
                 <img
-                  src={selectedProject.image}
+                  src={getProjectImage(selectedProject)}
                   alt={`Proyecto ${selectedProject.title} - vista detallada`}
                   loading="eager"
                   width="400"
@@ -250,7 +220,7 @@ export default function Portfolio() {
 
                 {/* Expand Image Button */}
                 <button
-                  onClick={() => openExpandedImage(selectedProject.image)}
+                  onClick={() => openExpandedImage(getProjectImage(selectedProject))}
                   className="absolute top-4 left-4 bg-white/90 dark:bg-slate-700/90 backdrop-blur-sm text-gray-900 dark:text-white rounded-xl p-2.5 hover:scale-110 transition-transform shadow-lg z-10"
                   aria-label="Ver imagen en pantalla completa"
                 >
@@ -273,7 +243,7 @@ export default function Portfolio() {
                 <div className="lg:hidden relative h-64 xs:h-72 overflow-hidden">
                   <div className={`absolute inset-0 bg-gradient-to-br ${selectedProject.gradient} opacity-90`}></div>
                   <img
-                    src={selectedProject.image}
+                    src={getProjectImage(selectedProject)}
                     alt={`Proyecto ${selectedProject.title} - vista detallada`}
                     loading="eager"
                     width="400"
@@ -284,7 +254,7 @@ export default function Portfolio() {
 
                   {/* Expand Image Button */}
                   <button
-                    onClick={() => openExpandedImage(selectedProject.image)}
+                    onClick={() => openExpandedImage(getProjectImage(selectedProject))}
                     className="absolute top-2 left-2 bg-white/90 dark:bg-slate-700/90 backdrop-blur-sm text-gray-900 dark:text-white rounded-lg p-1.5 hover:scale-110 transition-transform shadow-lg z-10"
                     aria-label="Ver imagen en pantalla completa"
                   >
@@ -359,7 +329,7 @@ export default function Portfolio() {
                       Stack Tecnológico
                     </h3>
                     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-2 xs:gap-3">
-                      {selectedProject.stack?.map((tech, i) => (
+                      {parseJsonField(selectedProject.stack || selectedProject.technologies).map((tech, i) => (
                         <div
                           key={i}
                           className={`p-3 bg-gradient-to-r ${selectedProject.gradient} bg-opacity-10 rounded-xl border border-gray-200 dark:border-slate-700 hover:shadow-md transition-shadow`}
@@ -381,7 +351,7 @@ export default function Portfolio() {
                       Características Principales
                     </h3>
                     <div className="grid grid-cols-1 gap-2 xs:gap-3">
-                      {selectedProject.features?.map((feature, i) => (
+                      {parseJsonField(selectedProject.features).map((feature, i) => (
                         <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 dark:bg-slate-800/50 rounded-lg border border-gray-200 dark:border-slate-700">
                           <span className={`flex-shrink-0 h-5 w-5 bg-gradient-to-r ${selectedProject.gradient} rounded-full flex items-center justify-center mt-0.5`}>
                             <svg className="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -414,7 +384,7 @@ export default function Portfolio() {
                   )}
 
                   {/* Action Links */}
-                  {(selectedProject.demoUrl || selectedProject.codeUrl) && (
+                  {(selectedProject.demo_url || selectedProject.github_url) && (
                     <div className="space-y-3 pt-4 border-t border-gray-200 dark:border-slate-700">
                       <h3 className="text-lg xs:text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
                         <svg className="w-5 h-5 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -423,9 +393,9 @@ export default function Portfolio() {
                         Enlaces del Proyecto
                       </h3>
                       <div className="flex flex-col sm:flex-row gap-3">
-                        {selectedProject.demoUrl && (
+                        {selectedProject.demo_url && (
                           <a
-                            href={selectedProject.demoUrl}
+                            href={selectedProject.demo_url}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold rounded-xl hover:scale-105 transition-transform shadow-lg"
@@ -436,9 +406,9 @@ export default function Portfolio() {
                             Ver Demo
                           </a>
                         )}
-                        {selectedProject.codeUrl && (
+                        {selectedProject.github_url && (
                           <a
-                            href={selectedProject.codeUrl}
+                            href={selectedProject.github_url}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gray-800 dark:bg-gray-700 text-white font-bold rounded-xl hover:scale-105 transition-transform shadow-lg"

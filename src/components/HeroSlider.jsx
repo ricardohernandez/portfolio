@@ -1,59 +1,21 @@
 import { useState, useEffect } from 'react';
+import { useSliders } from '../hooks/useSliders.js';
 
 export default function HeroSlider() {
-  // Datos de los 3 sliders
-  const sliders = [
-    {
-      id: 'general',
-      h1: 'Desarrollo Ágil de Soluciones Hechas a Medida',
-      h1Highlight: 'Soluciones Hechas a Medida',
-      roles: ['Desarrollo Ágil', 'Soluciones Hechas a Medida', 'Apps Empresariales', 'Consultoría Técnica'],
-      proposals: [
-        'Desarrollo soluciones web ágiles que impulsan el crecimiento de tu negocio con entregas rápidas y resultados medibles.',
-        'Creo aplicaciones web personalizadas que optimizan procesos y maximizan la eficiencia operativa de tu empresa.',
-        'Innovo con aplicaciones web escalables que transforman ideas en oportunidades reales de negocio sostenible.',
-        'Construyo aplicaciones web confiables que generan retorno de inversión inmediato y fortalecen tu presencia digital.',
-        'Transformo conceptos en aplicaciones web de alto rendimiento que elevan la experiencia de tus usuarios y potencian tus ventas.'
-      ]
-    },
-    {
-      id: 'startup',
-      h1: 'Impulsa tu Startup con Desarrollo Rápido y Escalable',
-      h1Highlight: 'Desarrollo Rápido y Escalable',
-      roles: ['Desarrollo Ágil', 'Soluciones Hechas a Medida', 'Apps Empresariales', 'Consultoría Técnica'],
-      proposals: [
-        'Transformo ideas de startup en productos digitales funcionales que atraen inversores y usuarios rápidamente.',
-        'Construyo MVPs escalables que validan tu concepto de negocio sin invertir meses de desarrollo.',
-        'Creo aplicaciones web de alto crecimiento diseñadas para escalar desde día uno con cientos de usuarios.',
-        'Desarrollo soluciones tech innovadoras que posicionan tu startup como competencia en el mercado.',
-        'Acelero el time-to-market de tu producto con metodologías ágiles y arquitectura cloud-ready.'
-      ]
-    },
-    {
-      id: 'enterprise',
-      h1: 'Transformación para Empresas: Eficiencia y Resultados',
-      h1Highlight: 'Eficiencia y Resultados',
-      roles: ['Desarrollo Ágil', 'Soluciones Hechas a Medida', 'Apps Empresariales', 'Consultoría Técnica'],
-      proposals: [
-        'Digitalización de  procesos empresariales complejos en sistemas web confiables que generan ahorros inmediatos.',
-        'Creo soluciones empresariales robustas que integran tus sistemas existentes y multiplican tu productividad.',
-        'Implemento aplicaciones web corporativas seguras que cumplen normativas y escalan con tu organización.',
-        'Automatizo operaciones críticas de tu empresa con plataformas web personalizadas y de alto rendimiento.',
-        'Transformo datos dispersos en sistemas inteligentes que dan visibilidad total de tu negocio en tiempo real.'
-      ]
-    }
-  ];
-
+  // ✅ TODOS LOS HOOKS PRIMERO - OBLIGATORIO EN REACT
+  const { sliders, loading } = useSliders();
+  
   // Estado para slider actual y textos animados
   const [sliderIndex, setSliderIndex] = useState(0);
-  const currentSlider = sliders[sliderIndex];
-
   const [displayedText, setDisplayedText] = useState('');
   const [roleIndex, setRoleIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [progress, setProgress] = useState(0);
+
+  // ✅ CÁLCULOS después de los useState pero ANTES de los useEffect
+  const currentSlider = sliders?.[sliderIndex];
 
   // Resetear progreso solo cuando cambia el slider
   useEffect(() => {
@@ -98,6 +60,8 @@ export default function HeroSlider() {
   }, [isHovered, sliders.length, sliderIndex]);
 
   useEffect(() => {
+    if (!currentSlider || !currentSlider.roles) return; // Proteger si no hay slider
+    
     const currentRole = currentSlider.roles[roleIndex];
     const timeout = setTimeout(() => {
       if (!isDeleting && displayedText === currentRole) {
@@ -115,18 +79,29 @@ export default function HeroSlider() {
     }, isDeleting ? 50 : 100);
 
     return () => clearTimeout(timeout);
-  }, [displayedText, isDeleting, roleIndex, sliderIndex]);
+  }, [displayedText, isDeleting, roleIndex, sliderIndex, currentSlider]);
+
+  // ✅ CONDICIONALES después de los hooks
+  if (loading || !sliders || sliders.length === 0) {
+    return (
+      <div className="space-y-6 sm:space-y-8 animate-fade-in-up">
+        <div className="flex items-center justify-center py-12">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-500"></div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6 sm:space-y-8 animate-fade-in-up">
       {/* Main Heading */}
       <div className={`transition-all duration-300 ${isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
         <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 dark:text-white leading-tight mb-3 sm:mb-4">
-          {currentSlider.h1.split(currentSlider.h1Highlight)[0]}
+          {currentSlider.heading.split(currentSlider.highlight_text)[0]}
           <span className="bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
-            {currentSlider.h1Highlight}
+            {currentSlider.highlight_text}
           </span>
-          {currentSlider.h1.split(currentSlider.h1Highlight)[1]}
+          {currentSlider.heading.split(currentSlider.highlight_text)[1]}
         </h1>
         
         <div className="flex items-center gap-2 sm:gap-3 text-lg xs:text-2xl sm:text-3xl font-bold text-gray-700 dark:text-gray-300 flex-wrap mb-4">
@@ -146,7 +121,7 @@ export default function HeroSlider() {
       {/* Description - Propuesta de valor */}
       <p className={`text-base xs:text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed max-w-xl font-medium min-h-[80px] transition-all duration-300 ${isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
         <span className="font-bold text-cyan-600 dark:text-cyan-400">
-          {currentSlider.proposals[0]}
+          {currentSlider.proposal_text}
         </span>
       </p>
 
