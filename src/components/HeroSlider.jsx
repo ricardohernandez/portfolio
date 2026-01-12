@@ -93,10 +93,10 @@ export default function HeroSlider() {
   }
 
   return (
-    <div className="space-y-6 sm:space-y-8 animate-fade-in-up">
+    <div className="w-full max-w-5xl mx-auto space-y-6 sm:space-y-8 animate-fade-in-up">
       {/* Main Heading */}
       <div className={`transition-all duration-300 ${isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
-        <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 dark:text-white leading-tight mb-3 sm:mb-4">
+        <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-gray-900 dark:text-white leading-tight mb-3 sm:mb-4">
           {currentSlider.heading.split(currentSlider.highlight_text)[0]}
           <span className="bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
             {currentSlider.highlight_text}
@@ -111,7 +111,7 @@ export default function HeroSlider() {
         </div>
 
         <div className="flex items-center gap-2 text-base xs:text-lg sm:text-xl font-semibold text-gray-600 dark:text-gray-400 flex-wrap">
-          <span className="px-3 xs:px-4 py-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg min-w-[200px] xs:min-w-[250px] sm:min-w-[320px] animate-glow line-clamp-1">
+          <span className="px-3 xs:px-4 py-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg min-w-[200px] xs:min-w-[250px] sm:min-w-[300px] animate-glow line-clamp-1">
             {displayedText}
             <span className="animate-pulse">|</span>
           </span>
@@ -119,14 +119,14 @@ export default function HeroSlider() {
       </div>
 
       {/* Description - Propuesta de valor */}
-      <p className={`text-base xs:text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed max-w-xl font-medium min-h-[80px] transition-all duration-300 ${isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
+      <p className={`text-base xs:text-lg sm:text-xl lg:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl font-medium min-h-[80px] transition-all duration-300 ${isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
         <span className="font-bold text-cyan-600 dark:text-cyan-400">
           {currentSlider.proposal_text}
         </span>
       </p>
 
       {/* Slider Progress Bar */}
-      <div className="w-full max-w-xl mx-0 flex justify-center">
+      <div className="w-full flex justify-center">
         {/* Progress Bar Container */}
         <div 
           className="w-full flex items-center gap-2"
@@ -163,12 +163,12 @@ export default function HeroSlider() {
         </div>
       </div>
       
-      <p className="text-sm xs:text-base sm:text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl">
+      <p className="text-sm xs:text-base sm:text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl">
          Desde startups hasta empresas consolidadas: desarrollo soluciones personalizadas con las últimas tecnologías.
       </p>
 
       {/* CTA Buttons */}
-      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
+      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-start">
         <button
           onClick={() => document.getElementById('portafolio').scrollIntoView({ behavior: 'smooth' })}
           className="group relative px-6 xs:px-8 py-3 xs:py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-sm xs:text-base rounded-xl shadow-2xl shadow-cyan-500/40 hover:shadow-cyan-500/60 transition-all duration-300 hover:scale-105 overflow-hidden"
